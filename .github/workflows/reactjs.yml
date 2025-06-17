@@ -3,15 +3,26 @@ name: ReactJs Workflow
 on:
    push:
       branches:
-         - reactjs
+         - main
 
 jobs:
    ReactJsJob:
       runs-on: ubuntu-latest
       steps:
          - name: Checkout
-           uses: actions/checkout@4.2.2
+           uses: actions/checkout@v4.2.2
 
          - name: Setup NodeJs
-            uses: actions/setup-node@v3.9.1
-            
+           uses: actions/setup-node@v4.2.0
+           with:
+              node-version: 22.x
+
+         - name: Install Dependencies
+           run: |
+              echo "Installing ReactJs dependencies..."
+              npm install
+
+         - name: Build ReactJs App
+           run: |
+              echo "Building ReactJs app..."
+              npm run build
