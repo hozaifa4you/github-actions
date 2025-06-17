@@ -27,4 +27,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
          - name: Greeting
-           run: echo "Manual Dispatch Triggered!, My name is ${{ inputs.name }}"
+           run: echo "Manual Dispatch Triggered!, My name is ${{ inputs.name }}, I am ${{ inputs.age }} years old and I live in ${{ inputs.country }}."
