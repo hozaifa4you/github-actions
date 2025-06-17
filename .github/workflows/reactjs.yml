@@ -3,7 +3,7 @@ name: ReactJs Workflow
 on:
    push:
       branches:
-         - main
+         - reactjs
 
 jobs:
    ReactJsJob:
