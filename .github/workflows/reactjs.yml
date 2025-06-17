@@ -1,0 +1,15 @@
+name: ReactJs Workflow
+
+on:
+   push:
+      branches:
+         - reactjs
+
+jobs:
+   ReactJsJob:
+      runs-on: ubuntu-latest
+      steps:
+         - name: Install Packages
+           run: |
+              echo "Installing ReactJs packages..."
+              npm install
