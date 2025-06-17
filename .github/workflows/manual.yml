@@ -8,11 +8,23 @@ on:
             type: string
             required: true
             default: "Yousuf Ahamad"
+         age:
+            description: "Age of the person to greet"
+            type: number
+            required: false
+            default: 30
+         country:
+            description: "Country of the person to greet"
+            type: choice
+            required: false
+            options:
+               - "India"
+               - "USA"
+               - "Canada"
 
 jobs:
    demo:
       runs-on: ubuntu-latest
       steps:
          - name: Greeting
-           run: echo "Manual Dispatch Triggered!"
-              echo "My name is ${{ github.event.inputs.name }}"
+           run: echo "Manual Dispatch Triggered!, My name is ${{ inputs.name }}"
