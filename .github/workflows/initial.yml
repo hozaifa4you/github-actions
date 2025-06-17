@@ -1,7 +1,9 @@
-name: Manual Trigger Workflow
+name: Initial Workflow
 
 on:
-   workflow_dispatch:
+   push:
+      branches:
+         - main
 
 jobs:
    demo:
@@ -9,4 +11,4 @@ jobs:
       steps:
          - name: Greeting
            run: echo "Hello, World!"
-               echo "My name is Yousf"
+              echo "My name is Yousuf Ahamad"
