@@ -1,12 +1,11 @@
-name: Inital Workflow
+name: Manual Trigger Workflow
 
 on:
-  push:
-    branches: [main]
+   workflow_dispatch:
 
 jobs:
-  demo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test 
-        run: echo "The first workflow" 
+   demo:
+      runs-on: ubuntu-latest
+      steps:
+         - name: Greeting
+           run: echo "Hello, World!"
