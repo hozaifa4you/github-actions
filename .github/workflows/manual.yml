@@ -2,6 +2,12 @@ name: Manual Trigger Workflow
 
 on:
    workflow_dispatch:
+      inputs:
+         name:
+            description: "Name of the person to greet"
+            type: string
+            required: true
+            default: "Yousuf Ahamad"
 
 jobs:
    demo:
@@ -9,4 +15,4 @@ jobs:
       steps:
          - name: Greeting
            run: echo "Manual Dispatch Triggered!"
-              echo "My name is Yousf"
+              echo "My name is ${{ github.event.inputs.name }}"
