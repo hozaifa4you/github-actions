@@ -1,0 +1,13 @@
+name: Scheduled Workflow
+
+on:
+   workflow_dispatch:
+   schedule:
+      - cron: "* * * * *"
+
+jobs:
+   ScheduleJob:
+      runs-on: ubuntu-latest
+      steps:
+         - name: Schedule Greeting
+           run: echo "Scheduled Job Executed"
