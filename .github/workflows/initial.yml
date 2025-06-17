@@ -1,0 +1,12 @@
+name: Inital Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test 
+        run: echo "The first workflow" 
