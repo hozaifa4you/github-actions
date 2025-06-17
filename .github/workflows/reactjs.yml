@@ -9,7 +9,9 @@ jobs:
    ReactJsJob:
       runs-on: ubuntu-latest
       steps:
-         - name: Install Packages
-           run: |
-              echo "Installing ReactJs packages..."
-              npm install
+         - name: Checkout
+           uses: actions/checkout@4.2.2
+
+         - name: Setup NodeJs
+            uses: actions/setup-node@v3.9.1
+            
