@@ -1,0 +1,38 @@
+name: Job Output Actions
+
+on:
+   workflow_dispatch:
+
+jobs:
+   Job1:
+      runs-on: windows-latest
+      outputs:
+         name: "name"
+         age: "age"
+         location: "location"
+         occupation: "occupation"
+
+      steps:
+         - name: Set Output 1
+           run: |
+              echo "name=Yousuf Ahamad" >> $env:GITHUB_OUTPUT
+              echo "age=25" >> $env:GITHUB_OUTPUT
+              echo "Output variables set successfully."
+
+         - name: Set Output 2
+           run: |
+              echo "location=New York" >> $env:GITHUB_OUTPUT
+              echo "occupation=Software Engineer" >> $env:GITHUB_OUTPUT
+              echo "Output variables set successfully."
+
+   Job2:
+      runs-on: windows-latest
+      needs: Job1
+
+      steps:
+         - name: Access Output
+           run: |
+              echo "Name: ${{ needs.Job1.outputs.name }}"
+               echo "Age: ${{ needs.Job1.outputs.age }}"
+               echo "Location: ${{ needs.Job1.outputs.location }}"
+               echo "Occupation: ${{ needs.Job1.outputs.occupation }}"
