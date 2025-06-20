@@ -13,8 +13,22 @@ jobs:
            run: |
               echo "name=Yousuf Ahamad" >> $GITHUB_OUTPUT
               echo "age=25" >> $GITHUB_OUTPUT
+              echo "Output variables set successfully."
+
+         - name: Set Output 2
+           id: set-output-2
+           shell: bash
+           run: |
+              echo "location=New York" >> $GITHUB_OUTPUT
+              echo "occupation=Software Engineer" >> $GITHUB_OUTPUT
+              echo "Output variables set successfully."
 
          - name: Access Output 1
            run: |
               echo "Name: ${{ steps.set-output-1.outputs.name }}"
               echo "Age: ${{ steps.set-output-1.outputs.age }}"
+
+         - name: Access Output 2
+           run: |
+              echo "Location: ${{ steps.set-output-2.outputs.location }}"
+              echo "Occupation: ${{ steps.set-output-2.outputs.occupation }}"
