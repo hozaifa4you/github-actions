@@ -4,36 +4,39 @@ on:
    workflow_dispatch:
 
 jobs:
-   Job1:
+   Ser_Input:
       runs-on: windows-latest
       outputs:
-         name:
-         age:
-         location:
-         occupation:
+         name: ${{steps.set_input_1.outputs.name}}
+         age: ${{steps.set_input_1.outputs.age}}
+         location: ${{steps.set_input_2.outputs.location}}
+         occupation: ${{steps.set_input_2.outputs.occupation}}
 
       steps:
          - name: Set Output
            shell: bash
+           id: set_input_1
            run: |
               echo "name=Yousuf Ahamad" >> $GITHUB_OUTPUT
               echo "age=25" >> $GITHUB_OUTPUT
               echo "Output variables set successfully."
 
          - name: Set Output 2
+           shell: bash
+           id: set_input_2
            run: |
               echo "location=New York" >> $GITHUB_OUTPUT
               echo "occupation=Software Engineer" >> $GITHUB_OUTPUT
               echo "Output variables set successfully."
 
-   Job2:
+   Access_Input:
       runs-on: windows-latest
-      needs: Job1
+      needs: Ser_Input
 
       steps:
          - name: Access Output
            run: |
-              echo "Name: ${{ needs.Job1.outputs.name }}"
-               echo "Age: ${{ needs.Job1.outputs.age }}"
-               echo "Location: ${{ needs.Job1.outputs.location }}"
-               echo "Occupation: ${{ needs.Job1.outputs.occupation }}"
+              echo "Name: ${{ needs.Ser_Input.outputs.name }}"
+              echo "Age: ${{ needs.Ser_Input.outputs.age }}"
+              echo "Location: ${{ needs.Ser_Input.outputs.location }}"
+              echo "Occupation: ${{ needs.Ser_Input.outputs.occupation }}"
