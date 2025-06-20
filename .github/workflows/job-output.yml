@@ -7,22 +7,23 @@ jobs:
    Job1:
       runs-on: windows-latest
       outputs:
-         name: "name"
-         age: "age"
-         location: "location"
-         occupation: "occupation"
+         name:
+         age:
+         location:
+         occupation:
 
       steps:
-         - name: Set Output 1
+         - name: Set Output
+           shell: bash
            run: |
-              echo "name=Yousuf Ahamad" >> $env:GITHUB_OUTPUT
-              echo "age=25" >> $env:GITHUB_OUTPUT
+              echo "name=Yousuf Ahamad" >> $GITHUB_OUTPUT
+              echo "age=25" >> $GITHUB_OUTPUT
               echo "Output variables set successfully."
 
          - name: Set Output 2
            run: |
-              echo "location=New York" >> $env:GITHUB_OUTPUT
-              echo "occupation=Software Engineer" >> $env:GITHUB_OUTPUT
+              echo "location=New York" >> $GITHUB_OUTPUT
+              echo "occupation=Software Engineer" >> $GITHUB_OUTPUT
               echo "Output variables set successfully."
 
    Job2:
