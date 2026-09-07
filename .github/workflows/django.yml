@@ -1,0 +1,15 @@
+name: Django Workflow
+
+on:
+  push:
+    branches:
+      - django
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print
+        run: echo "Hello, Django Workflow!"
