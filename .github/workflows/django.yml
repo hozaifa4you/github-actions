@@ -11,5 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print
-        run: echo "Hello, Django Workflow!"
+      - uses: actions/checkout@v4
+
+      - name: List files
+        run: ls -R

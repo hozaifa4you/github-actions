@@ -1,14 +1,14 @@
 name: Initial Workflow
 
 on:
-   push:
-      branches:
-         - main
+  push:
+    branches:
+      - main
 
 jobs:
-   demo:
-      runs-on: ubuntu-latest
-      steps:
-         - name: Greeting
-           run: echo "Hello, World!"
-              echo "My name is Yousuf Ahamad"
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: echo "Hello, World!"
+          echo "My name is Yousuf Ahamad"
