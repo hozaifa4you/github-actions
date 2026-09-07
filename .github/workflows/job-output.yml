@@ -1,42 +1,42 @@
 name: Job Output Actions
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-   Ser_Input:
-      runs-on: windows-latest
-      outputs:
-         name: ${{steps.set_input_1.outputs.name}}
-         age: ${{steps.set_input_1.outputs.age}}
-         location: ${{steps.set_input_2.outputs.location}}
-         occupation: ${{steps.set_input_2.outputs.occupation}}
+  Ser_Input:
+    runs-on: windows-latest
+    outputs:
+      name: ${{steps.set_input_1.outputs.name}}
+      age: ${{steps.set_input_1.outputs.age}}
+      location: ${{steps.set_input_2.outputs.location}}
+      occupation: ${{steps.set_input_2.outputs.occupation}}
 
-      steps:
-         - name: Set Output
-           shell: bash
-           id: set_input_1
-           run: |
-              echo "name=Yousuf Ahamad" >> $GITHUB_OUTPUT
-              echo "age=25" >> $GITHUB_OUTPUT
-              echo "Output variables set successfully."
+    steps:
+      - name: Set Output
+        shell: bash
+        id: set_input_1
+        run: |
+          echo "name=Yousuf Ahamad" >> $GITHUB_OUTPUT
+          echo "age=25" >> $GITHUB_OUTPUT
+          echo "Output variables set successfully."
 
-         - name: Set Output 2
-           shell: bash
-           id: set_input_2
-           run: |
-              echo "location=New York" >> $GITHUB_OUTPUT
-              echo "occupation=Software Engineer" >> $GITHUB_OUTPUT
-              echo "Output variables set successfully."
+      - name: Set Output 2
+        shell: bash
+        id: set_input_2
+        run: |
+          echo "location=New York" >> $GITHUB_OUTPUT
+          echo "occupation=Software Engineer" >> $GITHUB_OUTPUT
+          echo "Output variables set successfully."
 
-   Access_Input:
-      runs-on: windows-latest
-      needs: Ser_Input
+  Access_Input:
+    runs-on: windows-latest
+    needs: Ser_Input
 
-      steps:
-         - name: Access Output
-           run: |
-              echo "Name: ${{ needs.Ser_Input.outputs.name }}"
-              echo "Age: ${{ needs.Ser_Input.outputs.age }}"
-              echo "Location: ${{ needs.Ser_Input.outputs.location }}"
-              echo "Occupation: ${{ needs.Ser_Input.outputs.occupation }}"
+    steps:
+      - name: Access Output
+        run: |
+          echo "Name: ${{ needs.Ser_Input.outputs.name }}"
+          echo "Age: ${{ needs.Ser_Input.outputs.age }}"
+          echo "Location: ${{ needs.Ser_Input.outputs.location }}"
+          echo "Occupation: ${{ needs.Ser_Input.outputs.occupation }}"
