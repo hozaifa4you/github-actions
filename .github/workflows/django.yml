@@ -15,3 +15,13 @@ jobs:
 
       - name: List files
         run: ls -R
+
+      - name: Install UV
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Check UV version
+        run: |
+          uv --version
+          which uv
