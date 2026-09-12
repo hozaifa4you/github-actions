@@ -11,7 +11,7 @@ on:
         type: boolean
 
 jobs:
-  build:
+  django:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,3 +31,13 @@ jobs:
         uses: astral-sh/setup-uv@v10.0.1
         with:
           version: 0.12.13
+
+      - name: Install dependencies
+        run: |
+          uv sync
+          npm ci
+          ls -R
+
+      - name: Run Django tests
+        run: |
+          uv run manage.py test
