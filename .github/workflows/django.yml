@@ -17,6 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
+      - name: Install Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: 3.13
+
+      - name: Check python version
+        run: |
+          python --version
+          which python
+
       - name: Install Nodejs
         uses: actions/setup-node@v7.0.0
         with:
@@ -29,6 +39,11 @@ jobs:
 
       - name: Install UV
         uses: astral-sh/setup-uv@v10.0.1
+
+      - name: Check UV version
+        run: |
+          uv --version
+          which uv
 
       - name: Check UV version
         run: |
