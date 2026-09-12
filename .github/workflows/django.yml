@@ -22,33 +22,15 @@ jobs:
         with:
           python-version: 3.13
 
-      - name: Check python version
-        run: |
-          python --version
-          which python
-
       - name: Install Nodejs
         uses: actions/setup-node@v7.0.0
         with:
           node-version: 24
 
-      - name: Check nodejs version
-        run: |
-          node --version
-          which node
-
       - name: Install UV
         uses: astral-sh/setup-uv@v10.0.1
-
-      - name: Check UV version
-        run: |
-          uv --version
-          which uv
-
-      - name: Check UV version
-        run: |
-          uv --version
-          which uv
+        with:
+          version: 0.12.13
 
       - name: Prints
         run: |
