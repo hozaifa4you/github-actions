@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'dist/output.css' %}" />
+  </head>
+  <body class="flex min-h-full flex-col bg-slate-50 text-slate-800 antialiased">
+    <header class="border-b border-slate-200 bg-white">
+      <nav
+        class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
+      >
+        <a href="{% url 'home' %}" class="text-lg font-semibold text-slate-900">
+          github<span class="text-indigo-600">-actions</span>
+        </a>
+        <ul class="flex items-center gap-6 text-sm font-medium text-slate-600">
+          <li>
+            <a class="hover:text-indigo-600" href="{% url 'home' %}">Home</a>
+          </li>
+          <li><a class="hover:text-indigo-600" href="/admin/">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="flex-1">{% block content %}{% endblock %}</main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-slate-500">
+        Demo page rendered by Django &middot; styled with Tailwind CSS
+      </div>
+    </footer>
+  </body>
+</html>

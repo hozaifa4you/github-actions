@@ -1,0 +1,22 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./static/css/input.css -o ./static/dist/output.css --minify"
+  },
+  "homepage": "https://github.com/hozaifa4you/github-actions#readme",
+  "bugs": {
+    "url": "https://github.com/hozaifa4you/github-actions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hozaifa4you/github-actions.git"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
