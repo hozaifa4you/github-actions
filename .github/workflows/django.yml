@@ -32,11 +32,24 @@ jobs:
         with:
           version: 0.12.13
 
+      - name: Check deployable
+        run: |
+          uv run manage.py check
+
       - name: Install dependencies
         run: |
           uv sync
           npm ci
-          ls -R
+
+      - name: Run migrations
+        run: |
+          uv run manage.py migrate
+
+      - name: Check for migrations
+        run: |
+          uv run manage.py makemigrations --check --dry-run
+          uv run manage.py showmigrations
+          ls db.sqlite3
 
       - name: Run Django tests
         run: |

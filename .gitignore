@@ -21,6 +21,11 @@ out/
 coverage/
 .nyc_output/
 
+# Database
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+
 # Caches
 .cache/
 .parcel-cache/
