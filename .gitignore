@@ -20,6 +20,7 @@ build/
 out/
 coverage/
 .nyc_output/
+staticfiles/
 
 # Database
 db.sqlite3

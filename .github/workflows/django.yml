@@ -55,6 +55,9 @@ jobs:
         run: |
           uv run manage.py test
 
+      - name: Build CSS
+        run: npm run build
+
       - name: Collect static files
         run: uv run manage.py collectstatic --noinput
 
