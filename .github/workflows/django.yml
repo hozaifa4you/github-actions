@@ -55,18 +55,8 @@ jobs:
         run: |
           uv run manage.py test
 
-      - name: Generate coverage report
-        run: uv run coverage html
-
       - name: Collect static files
         run: uv run manage.py collectstatic --noinput
-
-      - name: upload coverage report
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: coverage-report
-          path: htmlcov/
-          retention-days: 5
 
       - name: Upload Static Files
         uses: actions/upload-artifact@v7.0.1
