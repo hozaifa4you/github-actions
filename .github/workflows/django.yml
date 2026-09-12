@@ -5,6 +5,10 @@ on:
     branches:
       - django
   workflow_dispatch:
+    inputs:
+      is_active:
+        default: true
+        type: boolean
 
 jobs:
   build:
