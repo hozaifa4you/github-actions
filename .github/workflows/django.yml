@@ -15,13 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
 
       - name: List files
         run: ls -R
 
       - name: Install UV
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v10.0.1
 
       - name: Check UV version
         run: |
