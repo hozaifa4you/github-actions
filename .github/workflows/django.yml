@@ -27,3 +27,8 @@ jobs:
         run: |
           uv --version
           which uv
+
+      - name: Prints
+        run: |
+          echo "Print details"
+          echo "${{toJson(github)}}"
