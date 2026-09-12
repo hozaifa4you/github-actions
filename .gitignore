@@ -1,0 +1,51 @@
+
+# Dependencies
+node_modules/
+vendor/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and runtime files
+*.log
+logs/
+*.pid
+*.seed
+
+# Build and coverage output
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+
+# Caches
+.cache/
+.parcel-cache/
+.eslintcache
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# Test and tooling artifacts
+.npm/
+.yarn/
+.pnp.*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
