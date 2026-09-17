@@ -61,9 +61,21 @@ jobs:
       - name: Collect static files
         run: uv run manage.py collectstatic --noinput
 
-      - name: Upload Static Files
+      - name: Upload build artifact
         uses: actions/upload-artifact@v7.0.1
         with:
-          name: static-files
-          path: staticfiles/
+          name: django-app
+          path: |
+            manage.py
+            pyproject.toml
+            uv.lock
+            .python-version
+            apps/
+            config/
+            infra/
+            staticfiles/
+            !**/__pycache__
+            !**/tests.py
+            !**/.env*
+          include-hidden-files: true
           retention-days: 5
