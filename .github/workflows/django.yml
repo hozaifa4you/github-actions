@@ -11,7 +11,7 @@ on:
         type: boolean
 
 jobs:
-  django:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -67,6 +67,7 @@ jobs:
           name: django-app
           path: |
             manage.py
+            deploy.sh
             pyproject.toml
             uv.lock
             .python-version
@@ -79,3 +80,39 @@ jobs:
             !**/.env*
           include-hidden-files: true
           retention-days: 5
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: django-app
+          path: django-app
+
+      - name: Clean APP_DIR variable
+        env:
+          APP_DIR: ${{vars.APP_DIR}}
+        run: echo "APP_DIR=$(printf '%s' "$APP_DIR" | tr -d '[:cntrl:]')" >> "$GITHUB_ENV"
+
+      - name: Copy files to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{vars.VPS_HOST}}
+          username: ${{vars.VPS_USERNAME}}
+          password: ${{secrets.VPS_PASS}}
+          source: django-app
+          target: ${{env.APP_DIR}}
+          strip_components: 1
+
+      - name: Deployment
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{vars.VPS_HOST}}
+          username: ${{vars.VPS_USERNAME}}
+          password: ${{secrets.VPS_PASS}}
+          script: |
+            cd "${{env.APP_DIR}}"
+            bash deploy.sh
